@@ -1,0 +1,106 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "roundTip",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1.9,
+  "sample": 10,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "scaleX": [
+        {
+          "frame": 0,
+          "value": 0,
+          "curve": [
+            0.2,
+            0.5,
+            0.5,
+            0.8
+          ]
+        },
+        {
+          "frame": 0.3,
+          "value": 1.1
+        },
+        {
+          "frame": 0.5,
+          "value": 0.9
+        },
+        {
+          "frame": 0.7,
+          "value": 1.05
+        },
+        {
+          "frame": 0.8,
+          "value": 1
+        }
+      ],
+      "scaleY": [
+        {
+          "frame": 0,
+          "value": 0,
+          "curve": [
+            0.2,
+            0.5,
+            0.5,
+            0.8
+          ]
+        },
+        {
+          "frame": 0.3,
+          "value": 1.1
+        },
+        {
+          "frame": 0.5,
+          "value": 0.9
+        },
+        {
+          "frame": 0.7,
+          "value": 1.05
+        },
+        {
+          "frame": 0.8,
+          "value": 1
+        }
+      ],
+      "position": [
+        {
+          "frame": 1.5,
+          "value": [
+            0,
+            0
+          ]
+        },
+        {
+          "frame": 1.9,
+          "value": [
+            0,
+            -2040
+          ]
+        }
+      ],
+      "opacity": [
+        {
+          "frame": 1.4,
+          "value": 255
+        },
+        {
+          "frame": 1.5,
+          "value": 50
+        },
+        {
+          "frame": 1.9,
+          "value": 0
+        }
+      ]
+    },
+    "paths": {
+      "bg": {
+        "props": {}
+      }
+    }
+  },
+  "events": []
+}

@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "e267a9bc-1308-494b-a13f-d151b6a8458a",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "iphonex": {
+      "ver": "1.0.3",
+      "uuid": "d71bfe15-919e-4105-a0b4-a9ba6ec32942",
+      "rawTextureUuid": "e267a9bc-1308-494b-a13f-d151b6a8458a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 720,
+      "height": 1800,
+      "rawWidth": 720,
+      "rawHeight": 1800,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

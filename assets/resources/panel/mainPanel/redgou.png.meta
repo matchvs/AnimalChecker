@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "c4053655-1087-48a4-955f-b71bab47be2e",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "redgou": {
+      "ver": "1.0.3",
+      "uuid": "14029dc1-589d-4a38-946a-95875762038e",
+      "rawTextureUuid": "c4053655-1087-48a4-955f-b71bab47be2e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": -24,
+      "trimX": 21,
+      "trimY": 48,
+      "width": 100,
+      "height": 108,
+      "rawWidth": 141,
+      "rawHeight": 156,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

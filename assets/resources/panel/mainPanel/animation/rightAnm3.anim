@@ -1,0 +1,52 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "rightAnm3",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 2,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            243.1,
+            602.6
+          ],
+          "motionPath": [
+            [
+              256.3,
+              511.8,
+              244.6,
+              553.3,
+              268.3,
+              469.3
+            ]
+          ]
+        },
+        {
+          "frame": 1,
+          "value": [
+            290.7,
+            434.5
+          ],
+          "motionPath": []
+        }
+      ],
+      "opacity": [
+        {
+          "frame": 1,
+          "value": 255
+        },
+        {
+          "frame": 2,
+          "value": 0
+        }
+      ]
+    }
+  },
+  "events": []
+}

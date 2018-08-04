@@ -1,0 +1,135 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "timeover",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 2.17,
+  "sample": 60,
+  "speed": 1.5,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "time": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                867,
+                0
+              ],
+              "motionPath": []
+            },
+            {
+              "frame": 0.5833333333333334,
+              "value": [
+                0,
+                0
+              ],
+              "motionPath": []
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0,
+              "value": 20
+            },
+            {
+              "frame": 0.5,
+              "value": 255
+            },
+            {
+              "frame": 1.5,
+              "value": 255
+            },
+            {
+              "frame": 1.5666666666666667,
+              "value": 200
+            },
+            {
+              "frame": 1.8,
+              "value": 80
+            },
+            {
+              "frame": 2.0166666666666666,
+              "value": 0
+            }
+          ],
+          "rotation": [
+            {
+              "frame": 0.5833333333333334,
+              "value": 0
+            },
+            {
+              "frame": 0.6,
+              "value": -10
+            },
+            {
+              "frame": 0.75,
+              "value": 10
+            },
+            {
+              "frame": 0.9166666666666666,
+              "value": 0
+            },
+            {
+              "frame": 1.0833333333333333,
+              "value": 10
+            },
+            {
+              "frame": 1.25,
+              "value": -10
+            },
+            {
+              "frame": 1.4166666666666667,
+              "value": 10
+            },
+            {
+              "frame": 1.5,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "timee": {
+        "props": {
+          "opacity": [
+            {
+              "frame": 1.4833333333333334,
+              "value": 0
+            },
+            {
+              "frame": 1.5166666666666666,
+              "value": 80
+            },
+            {
+              "frame": 2.1666666666666665,
+              "value": 0
+            }
+          ],
+          "scaleX": [
+            {
+              "frame": 1.5,
+              "value": 1
+            },
+            {
+              "frame": 2.1666666666666665,
+              "value": 2
+            }
+          ],
+          "scaleY": [
+            {
+              "frame": 1.5,
+              "value": 1
+            },
+            {
+              "frame": 2.1666666666666665,
+              "value": 2
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

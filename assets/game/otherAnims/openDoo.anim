@@ -1,0 +1,55 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "openDoo",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 2.05,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "shutDoor": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "ef55c7ab-a6a7-4d04-89d7-97b3780856a2"
+                }
+              },
+              {
+                "frame": 0.31666666666666665,
+                "value": {
+                  "__uuid__": "4e8ba0a2-0e0a-47c6-b1b4-51023b141e35"
+                }
+              },
+              {
+                "frame": 1.65,
+                "value": {
+                  "__uuid__": "91b65847-26d0-411d-8b93-7423577984ec"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "propaganda": {
+        "props": {
+          "opacity": [
+            {
+              "frame": 2,
+              "value": 0
+            },
+            {
+              "frame": 2.05,
+              "value": 255
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

@@ -1,0 +1,96 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "teacherBro",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.55,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "teacherBrother": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -207,
+                0
+              ]
+            },
+            {
+              "frame": 0.15,
+              "value": [
+                270,
+                0
+              ]
+            },
+            {
+              "frame": 0.38333333333333336,
+              "value": [
+                476,
+                0
+              ]
+            }
+          ],
+          "active": [
+            {
+              "frame": 0,
+              "value": false
+            },
+            {
+              "frame": 0.06666666666666667,
+              "value": true
+            }
+          ]
+        }
+      },
+      "teacherBrotherr": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -292,
+                0
+              ]
+            },
+            {
+              "frame": 0.06666666666666667,
+              "value": [
+                -92,
+                0
+              ]
+            },
+            {
+              "frame": 0.15,
+              "value": [
+                206,
+                0
+              ]
+            },
+            {
+              "frame": 0.55,
+              "value": [
+                472,
+                0
+              ]
+            }
+          ],
+          "active": [
+            {
+              "frame": 0,
+              "value": false
+            },
+            {
+              "frame": 0.1,
+              "value": true
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}
