@@ -1,0 +1,78 @@
+<div class="layout vertical">
+    <div style="background: #000000; position: absolute; top: 0px; height: 40px; width: 100%">
+        <div class="self-start layout center horizontal" style="background: #000000; padding:5px 20px;">
+            <img src="packages://plugin-matchvs/assets/img/m_logo.png" />
+        </div>
+    </div>
+    <div style="background: #ffffff; position: absolute; top: 40px; height: 100%; width: 100%">
+        <div class="self-start layout center horizontal" style="background: #ffffff;">
+            <img style="padding: 0px 1px 0px 20px;" src="packages://plugin-matchvs/assets/img/icon_construct.png" />
+            <p style="padding: 0px 10px;">构建项目</p>
+            <img style="padding: 0px 10px;" src="packages://plugin-matchvs/assets/img/icon_arrow.png" />
+
+            <img style="padding: 0px 10px;" src="packages://plugin-matchvs/assets/img/icon_import.png" />
+            <p>导入Matchvs</p>
+            <img style="padding: 0px 10px;" src="packages://plugin-matchvs/assets/img/icon_arrow.png" />
+
+            <img style="padding: 0px 10px;" src="packages://plugin-matchvs/assets/img/icon_integration.png" />
+            <div class="flex-1"><p>代码集成</p></div>
+
+            <img style="padding-left: 280px;" src="packages://plugin-matchvs/assets/img/icon_question.png" />
+            <a style="padding-left: 10px; padding-right: 20px" href="http://www.matchvs.com/service?sourceSign=cocosCreatorSign" target="_blank"><u><font color="black">使用指南</font></u></a>     
+        </div>
+        <div class="self-start layout center horizontal" style="padding: 0px 20px; background: #ffffff;">
+            <p>*若您的游戏需发布至Android、windows、macOS、IOS平台，请按上述流程导入插件并完成代码集成</p>
+        </div>
+        <div class="layout horizontal" style="width: 100%; padding: 10px 20px 20px 20px; background: #ffffff;">
+            <div class="layout vertical" style="padding-right: 40px; border: 1px solid #a1a1a1; border-radius:5px; width: 320px;">
+                <div class="layout horizontal">
+                    <div class="layout vertical start-justified" style="padding: 40px 20px 0px 20px">
+                        <div class="self-end layout center horizontal">
+                            <ui-button style="width: 150px; height: 40px;" class="self-end blue" v-on:confirm="onStartBuild">构建项目</ui-button>
+                        </div>
+                    </div>    
+                    <div class="layout vertical start-justified" style="padding: 40px 0px 0px 0px">
+                        <div class="self-end layout center horizontal">
+                            <ui-button v-bind:disabled="disableImportButton" style="width: 150px; height: 40px;" class="self-end green" v-on:confirm="onAddMatchvsSdk">导入Matchvs</ui-button>
+                        </div>
+                    </div>
+                </div>
+                <p v-if = "projectnamedisplay" style="padding: 10px 0px 0px 20px;">{{projectnamesimplevalue}}</p>
+                <p style="padding: 0px 0px 0px 20px;">{{projectnamevalue}}</p>
+                <p v-if = "noprojectdisplay" style="padding: 10px 0px 0px 20px;">暂无项目</p>
+                <div v-if = "createprojecttip" class="layout horizontal start-justified">
+                    <img style="padding: 10px 10px 0px 20px;" src="packages://plugin-matchvs/assets/img/icon_tip.png" />
+                    <u style="padding: 10px 10px 0px 0px;"><font color="red">导入Matchvs插件前，请先构建项目</font></u>
+                </div>
+                <div v-if = "importmatchvstip" class="layout horizontal start-justified">
+                    <img style="padding: 10px 10px 0px 20px;" src="packages://plugin-matchvs/assets/img/icon_tip.png" />
+                    <u style="padding: 10px 10px 0px 0px;"><font color="red">还未导入Matchvs</font></u>
+                </div>
+                <div v-if = "finishimportmatchvstip" class="layout center horizontal start-justified">
+                    <img style="padding: 10px 0px 0px 20px;" src="packages://plugin-matchvs/assets/img/icon_finish.png" />
+                    <p style="padding: 10px 0px 0px 10px;"><font color="green">导入完成，请参考</font></p>
+                    <a style="padding: 10px 0px 0px 0px;" href="http://www.matchvs.com/service?sourceSign=cocosCreatorSign" target="_blank"><u><font color="green">使用指南</font></u></a>  
+                    <p style="padding: 10px 10px 0px 0px;"><font color="green">开始集成</font></p>
+                </div>
+                <div v-if = "progressbarimport" class="layout center horizontal start-justified" style="width: 100%; padding: 10px 20px 0px 20px;">
+                    <ui-progress v-value="progressbarvalue" class="flex-1 small label"></ui-progress>
+                </div>
+                <p v-if = "importingmatchvsdisplay" style="padding: 10px 0px 0px 20px;">正在导入Matchvs...</p>
+            </div>
+
+            <div class="layout vertical flex-1" style="padding: 0px 30px 0px 20px;">
+                <textarea id="logTextArea" v-value="logView" @contextmenu="onLogViewMenu"
+                          style="width: 100%; height: calc(100% - 200px); background: #252525; color: #fd942b; border-color: #fd942b; border-radius:5px;"></textarea>
+            </div>
+
+            <div class="layout vertical" style="padding: 0px 0px 0px 10px;"></div>
+        </div>
+    </div>
+    <div style="background: #eeeeee; position: absolute; bottom: 0px; height: 40px; width: 100%">
+        <div class="self-start layout center horizontal" style="position:absolute; width:100%; bottom:20px; bottom:0px; background: #eeeeee; padding:20px 0px 20px 0px;">
+            <div class="flex-1" style="padding-left: 20px">Matchvs游戏云-专注移动游戏联网服务</div>
+            <div>技术支持：support.cocos@matchvs.com</div>
+            <div style="padding: 0px 20px 0px 10px;"> <a href="http://www.matchvs.com?sourceSign=cocosCreatorSign" target="_blank"><u><font color="black">进入官网</font></u></a></div>
+        </div>
+    </div>
+</div>

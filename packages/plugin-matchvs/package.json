@@ -1,0 +1,30 @@
+{
+  "name": "plugin-matchvs",
+  "version": "0.0.1",
+  "description": "The package template for getting started.",
+  "author": "Cocos Creator",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/i18n:plugin-matchvs.title": {
+      "message": "plugin-matchvs:open"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "plugin-matchvs",
+    "width": 800,
+    "min-width": 800, 
+    "height": 490,
+    "min-height": 490
+  },
+  "runtime-resource": {
+    "path": "matchvs/matchvsjssdk",
+    "name": "js"
+  },
+  "reload": {
+    "ignore": [
+      "matchvs/matchvsjssdk/**/*"
+    ]
+  }  
+}

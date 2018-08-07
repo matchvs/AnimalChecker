@@ -15,24 +15,25 @@ cc.Class({
         this.network.chooseNetworkMode();
         this.getRankDataListener();
         this.findPlayerByAccountListener();
-
-            // wx.login({
-            //     success: function() {
-            //         wx.getUserInfo({
-            //             fail: function(res) {
-            //                 // iOS 和 Android 对于拒绝授权的回调 errMsg 没有统一，需要做一下兼容处理
-            //                 if (res.errMsg.indexOf('auth deny') > -1 || res.errMsg.indexOf('auth denied') > -1) {
-            //                     // 处理用户拒绝授权的情况
-            //                 }
-            //             },
-            //             success: function(res) {
-            //                 Game.GameManager.nickName = res.userInfo.nickName;
-            //                 Game.GameManager.avatarUrl = res.userInfo.avatarUrl;
-            //                 console.log('success', Game.GameManager.nickName);
-            //             }
-            //         });
-            //     }
-            // })
+        if(window.wx) {
+            wx.login({
+                success: function() {
+                    wx.getUserInfo({
+                        fail: function(res) {
+                            // iOS 和 Android 对于拒绝授权的回调 errMsg 没有统一，需要做一下兼容处理
+                            if (res.errMsg.indexOf('auth deny') > -1 || res.errMsg.indexOf('auth denied') > -1) {
+                                // 处理用户拒绝授权的情况
+                            }
+                        },
+                        success: function(res) {
+                            Game.GameManager.nickName = res.userInfo.nickName;
+                            Game.GameManager.avatarUrl = res.userInfo.avatarUrl;
+                            console.log('success', Game.GameManager.nickName);
+                        }
+                    });
+                }
+            });
+        }
     },
 
     leaveRoom: function(data) {

@@ -13,7 +13,7 @@ cc.Class({
             this.rankCntLb.string = data.rank;
         }
         this.userNameLb.string = data.userName;
-        if (data.headIcon && data.headIcon.indexOf("http") >= 0) {
+        if (data.headIcon && data.headIcon !== "-") {
             cc.loader.load({url: data.headIcon, type: 'png'}, function(err, texture) {
                 // Use texture to create sprite frame
                 var spriteFrame = new cc.SpriteFrame(texture, cc.Rect(0, 0, texture.width, texture.height));

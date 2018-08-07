@@ -138,8 +138,8 @@ cc.Class({
     },
 
     inviteFriend: function() {
-        if(wx) {
-            wx.shareAppMessage();
+        if(window.wx) {
+            wx.shareAppMessage({imageUrl: "https://data.tianziyou.com/matchvsGamesRes/logo/animalCheckerLogo.png"});
         }
     }
 });

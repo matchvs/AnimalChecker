@@ -6,7 +6,7 @@
 
 window.dataFunc = {
     // 表格加载--
-    arrTables: ["roadTemplate"],
+    arrTables: [],
     csvTables: {},
     csvTableForArr: {},
     tableCast: {},
