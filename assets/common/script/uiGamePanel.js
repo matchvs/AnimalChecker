@@ -217,6 +217,7 @@ cc.Class({
     },
 
     onDestroy () {
+        clearInterval(this.interval);
         clientEvent.off(clientEvent.eventType.updateTime, this.updateTime.bind(this));
         clientEvent.off(clientEvent.eventType.countTime, this.countTime.bind(this));
         clientEvent.off(clientEvent.eventType.changeFlag, this.changeFlag.bind(this));

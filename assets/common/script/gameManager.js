@@ -87,10 +87,28 @@ cc.Class({
         mvs.response.loginResponse = this.loginResponse.bind(this); // 用户登录之后的回调
         mvs.response.logoutResponse = this.logoutResponse.bind(this); // 用户登录之后的回调
         mvs.response.sendEventNotify = this.sendEventNotify.bind(this);
+        mvs.response.networkStateNotify = this.networkStateNotify.bind(this);
 
         var result = mvs.engine.init(mvs.response, GLB.channel, GLB.platform, GLB.gameId);
         if (result !== 0) {
             console.log('初始化失败,错误码:' + result);
+        }
+    },
+
+    networkStateNotify: function(netNotify) {
+        console.log("netNotify");
+        console.log("netNotify.owner:" + netNotify.owner);
+        console.log("玩家：" + netNotify.userID + " state:" + netNotify.state);
+        if (netNotify.userID !== GLB.userInfo.id) {
+            var winFlag;
+            if (GLB.isRoomOwner) {
+                winFlag = GLB.PLAYER_FLAG.RED;
+            } else {
+                winFlag = GLB.PLAYER_FLAG.BLUE;
+            }
+            Game.GameManager.gameState = GameState.Over;
+            this.gameOver(winFlag);
+
         }
     },
 
