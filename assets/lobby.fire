@@ -562,6 +562,9 @@
     "_components": [
       {
         "__id__": 18
+      },
+      {
+        "__id__": 19
       }
     ],
     "_prefab": null,
@@ -582,8 +585,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
+      "width": 1200,
+      "height": 2000
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -591,8 +594,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": 312,
+      "y": 625
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -609,5 +612,14 @@
       "__id__": 17
     },
     "_enabled": true
+  },
+  {
+    "__type__": "cc.BlockInputEvents",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 17
+    },
+    "_enabled": false
   }
 ]
