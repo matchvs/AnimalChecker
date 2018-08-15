@@ -74,6 +74,7 @@ cc.Class({
     },
 
     roundStart () {
+        this.timeLabelInit();
         this.interval = null;
         this.playerFlag = GLB.PLAYER_FLAG.RED;
         // this.getTurn(this.playerFlag);
@@ -99,7 +100,15 @@ cc.Class({
         this.timeAnim.stop();
     },
 
+    timeLabelInit () {
+        this.timeNode.active = false;
+        this.timeNumLabel.string = 30;
+        this.timeNode.getChildByName('num').setScale(1,1);
+    },
+
     gameStart () {
+
+        // this.timeLabelInit();
         Game.GameManager.gameState = GameState.Play;
         this.countTime();
         if (GLB.isRoomOwner) {
@@ -133,10 +142,10 @@ cc.Class({
     },
 
     countTime () {
-        if (!GLB.isRoomOwner) return;
+        clearInterval(this.interval);
+        if (!GLB.isRoomOwner || Game.GameManager.gameState !== GameState.Play) return;
         this.time = 30;
         this.countDownEvent();
-        clearInterval(this.interval);
         this.interval = setInterval(function() {
             this.time--;
             this.countDownEvent();
@@ -158,7 +167,6 @@ cc.Class({
     countDownEvent () {
         var msg = {action: GLB.COUNT_TIME, flag: this.playerFlag, time: this.time};
         Game.GameManager.sendEventEx(msg);
-
     },
 
     changeFlag () {
