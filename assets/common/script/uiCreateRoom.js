@@ -66,6 +66,8 @@ cc.Class({
     },
 
     createRoom: function() {
+        Game.GameManager.blockInput();
+
         var create = new mvs.CreateRoomInfo();
         create.roomName = this.nodeDict["roomName"].getComponent(cc.EditBox).string;
         GLB.MAX_PLAYER_COUNT = this.playerCnt;
