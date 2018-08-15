@@ -144,6 +144,8 @@ cc.Class({
     },
 
     onDestroy() {
+        clearInterval(this.roomRqId);
+
         clientEvent.off(clientEvent.eventType.getRoomListResponse, this.getRoomListResponse, this);
         clientEvent.off(clientEvent.eventType.joinRoomResponse, this.joinRoomResponse, this);
         clientEvent.off(clientEvent.eventType.getRoomListExResponse, this.getRoomListExResponse, this);
