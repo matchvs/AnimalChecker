@@ -62,18 +62,17 @@ cc.Class({
 
     gameOver: function(winFlag) {
         console.log("游戏结束");
-        var gamePanel = uiFunc.findUI("uiGamePanel");
-        if (gamePanel && Game.GameManager.gameState !== GameState.Over) {
+        if (Game.GameManager.gameState !== GameState.Over) {
             Game.GameManager.gameState = GameState.Over
-            this.isLoadGame = false;
-            mvs.engine.leaveRoom();
-            setTimeout(function() {
-                uiFunc.openUI("uiVsResultVer", function(panel) {
-                    var panelScript = panel.getComponent('uiVsResult');
-                    panelScript.setData(winFlag);
-                }.bind(this));
-            }.bind(this), 1000);
         }
+        this.isLoadGame = false;
+        mvs.engine.leaveRoom();
+        setTimeout(function() {
+            uiFunc.openUI("uiVsResultVer", function (panel) {
+                var panelScript = panel.getComponent('uiVsResult');
+                panelScript.setData(winFlag);
+            }.bind(this));
+        }.bind(this), 1000);
     },
 
     matchVsInit: function() {
@@ -119,7 +118,6 @@ cc.Class({
             this.gameOver(winFlag);
 
         }
-        clientEvent.dispatch(clientEvent.eventType.leaveRoomMedNotify, netNotify);
     },
 
     kickPlayerNotify: function(kickPlayerNotify) {
@@ -345,6 +343,9 @@ cc.Class({
         }
         if (info.cpProto.indexOf(GLB.CHANGE_FLAG) >= 0) {
             clientEvent.dispatch(clientEvent.eventType.changeFlag);
+        }
+        if (info.cpProto.indexOf(GLB.CLEAR_CHESS) >= 0) {
+            clientEvent.dispatch(clientEvent.eventType.clearChess);
         }
         if (info.cpProto.indexOf(GLB.SEND_MAP_INFO) >= 0) {
             var param = JSON.parse(info.cpProto);

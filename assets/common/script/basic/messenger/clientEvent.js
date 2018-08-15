@@ -15,8 +15,6 @@ window.clientEvent = {
         joinRoomNotify: "joinRoomNotify",
         leaveRoomResponse: "leaveRoomResponse",
         leaveRoomNotify: "leaveRoomNotify",
-        leaveRoomMedNotify: "leaveRoomMedNotify",
-
         joinOverResponse: "joinOverResponse",
         createRoomResponse: "createRoomResponse",
         getRoomListResponse: "getRoomListResponse",
@@ -36,7 +34,8 @@ window.clientEvent = {
         openForOther: "openForOther",
         eatForOther: "eatForOther",
         getMap: "getMap",
-        stopTimeWarnAnim: "stopTimeWarnAnim"
+        stopTimeWarnAnim: "stopTimeWarnAnim",
+        clearChess: "clearChess"
     },
     eventListener: null
 }

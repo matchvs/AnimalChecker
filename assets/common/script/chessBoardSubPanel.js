@@ -60,6 +60,7 @@ cc.Class({
         clientEvent.on(clientEvent.eventType.isGameOver, this.isGameOver.bind(this));
         clientEvent.on(clientEvent.eventType.getMap, this.getMap.bind(this));
         clientEvent.on(clientEvent.eventType.gameOver, this.overClear.bind(this));
+        clientEvent.on(clientEvent.eventType.clearChess, this.overClear.bind(this));
         // this.node.on('touchend', this.touchBoardEvent, this);
         //this.getMap();
     },
@@ -76,6 +77,7 @@ cc.Class({
     },
 
     overClear () {
+        console.log('******清除棋子数据*****')
         this.mapParam01 = null;
         this.mapParam02  = null;
         this.oldChessNode = null;
@@ -196,6 +198,12 @@ cc.Class({
     getMap () {
         // 主机生成地图数据；
         if(!GLB.isRoomOwner) return;
+        // 先清空棋子数据（主机不会收到）；
+        var chessMsg = {
+            action: GLB.CLEAR_CHESS,
+        }
+        Game.GameManager.sendEvent(chessMsg)
+
         this.showChessInfo = [];
         this.showChessArr = [];
         this.showStepArr = [];
@@ -786,6 +794,7 @@ cc.Class({
         clientEvent.off(clientEvent.eventType.isGameOver, this.isGameOver.bind(this));
         clientEvent.off(clientEvent.eventType.getMap, this.getMap.bind(this));
         clientEvent.off(clientEvent.eventType.gameOver, this.overClear.bind(this));
+        clientEvent.off(clientEvent.eventType.clearChess, this.overClear.bind(this));
         this.node.off('touchend', this.touchBoardEvent, this);
     }
     // start () {
