@@ -211,6 +211,7 @@ cc.Class({
     },
 
     updateTime (param) {
+        if (Game.GameManager.gameState !== GameState.Play) return;
         var side = null;
         var time = param.time;
         if (time <= 5) {
@@ -230,6 +231,7 @@ cc.Class({
         clientEvent.off(clientEvent.eventType.countTime, this.countTime.bind(this));
         clientEvent.off(clientEvent.eventType.changeFlag, this.changeFlag.bind(this));
         clientEvent.off(clientEvent.eventType.roundStart, this.roundStart.bind(this));
+        clientEvent.off(clientEvent.eventType.gameOver, this.gameOver.bind(this));
         clientEvent.off(clientEvent.eventType.stopTimeWarnAnim, this.stopTimeWarnAnim.bind(this));
     }
     // update (dt) {},

@@ -66,7 +66,7 @@ cc.Class({
             Game.GameManager.gameState = GameState.Over
         }
         this.isLoadGame = false;
-        mvs.engine.leaveRoom();
+        // mvs.engine.leaveRoom();
         setTimeout(function() {
             uiFunc.openUI("uiVsResultVer", function (panel) {
                 var panelScript = panel.getComponent('uiVsResult');
@@ -344,9 +344,9 @@ cc.Class({
         if (info.cpProto.indexOf(GLB.CHANGE_FLAG) >= 0) {
             clientEvent.dispatch(clientEvent.eventType.changeFlag);
         }
-        if (info.cpProto.indexOf(GLB.CLEAR_CHESS) >= 0) {
-            clientEvent.dispatch(clientEvent.eventType.clearChess);
-        }
+        // if (info.cpProto.indexOf(GLB.CLEAR_CHESS) >= 0) {
+        //     clientEvent.dispatch(clientEvent.eventType.clearChess);
+        // }
         if (info.cpProto.indexOf(GLB.SEND_MAP_INFO) >= 0) {
             var param = JSON.parse(info.cpProto);
             clientEvent.dispatch(clientEvent.eventType.mapInit, param);
@@ -392,7 +392,10 @@ cc.Class({
         this.isLoadGame = true;
         this.readyCnt = 0;
         cc.director.loadScene('game', function() {
-            uiFunc.openUI("uiGamePanel", function() {
+            clientEvent.dispatch(clientEvent.eventType.clearChess);
+            uiFunc.openUI("uiGamePanel", function(panel) {
+                panel.getComponent("uiGamePanel").timeLabelInit();
+
                 this.sendReadyMsg();
             }.bind(this));
         }.bind(this));

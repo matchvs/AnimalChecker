@@ -198,11 +198,11 @@ cc.Class({
     getMap () {
         // 主机生成地图数据；
         if(!GLB.isRoomOwner) return;
-        // 先清空棋子数据（主机不会收到）；
-        var chessMsg = {
-            action: GLB.CLEAR_CHESS,
-        }
-        Game.GameManager.sendEvent(chessMsg)
+        // // 先清空棋子数据（主机不会收到）；
+        // var chessMsg = {
+        //     action: GLB.CLEAR_CHESS,
+        // }
+        // Game.GameManager.sendEvent(chessMsg)
 
         this.showChessInfo = [];
         this.showChessArr = [];
