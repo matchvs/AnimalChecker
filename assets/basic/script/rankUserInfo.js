@@ -17,7 +17,9 @@ cc.Class({
             cc.loader.load({url: data.headIcon, type: 'png'}, function(err, texture) {
                 // Use texture to create sprite frame
                 var spriteFrame = new cc.SpriteFrame(texture, cc.Rect(0, 0, texture.width, texture.height));
-                this.userIcon.spriteFrame = spriteFrame;
+                if(this.userIcon) {
+                    this.userIcon.spriteFrame = spriteFrame;
+                }
             }.bind(this));
         }
         this.userScoreLb.string = data.score;
