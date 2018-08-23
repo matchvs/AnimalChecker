@@ -786,7 +786,7 @@ cc.Class({
     onDestroy () {
         console.log('******chessBoardPanelOndestroy******');
         clientEvent.off(clientEvent.eventType.mapInit, this.mapInitEvent.bind(this));
-        clientEvent.on(clientEvent.eventType.eatForChess, this.eatForChessEvent.bind(this))
+        clientEvent.off(clientEvent.eventType.eatForChess, this.eatForChessEvent.bind(this))
         clientEvent.off(clientEvent.eventType.eatForOther, this.eatForOther.bind(this));
         clientEvent.off(clientEvent.eventType.openForOther, this.openForOther.bind(this));
         clientEvent.off(clientEvent.eventType.openChessPiece, this.openChessPieceEvent.bind(this));
@@ -795,7 +795,7 @@ cc.Class({
         clientEvent.off(clientEvent.eventType.getMap, this.getMap.bind(this));
         clientEvent.off(clientEvent.eventType.gameOver, this.overClear.bind(this));
         clientEvent.off(clientEvent.eventType.clearChess, this.overClear.bind(this));
-        this.node.off('touchend', this.touchBoardEvent, this);
+        // this.node.off('touchend', this.touchBoardEvent, this);
     }
     // start () {
     //

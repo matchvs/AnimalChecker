@@ -18,24 +18,35 @@ cc.Class({
 
     sure() {
 
-        var winFlag;
-        if (GLB.isRoomOwner) {
-            winFlag = GLB.PLAYER_FLAG.BLUE;
-        } else {
-            winFlag = GLB.PLAYER_FLAG.RED;
-        }
+        // var winFlag;
+        // if (GLB.isRoomOwner) {
+        //     winFlag = GLB.PLAYER_FLAG.BLUE;
+        // } else {
+        //     winFlag = GLB.PLAYER_FLAG.RED;
+        // }
+
+        // var msg = {
+        //     action: GLB.GAME_OVER_EVENT,
+        //     winFlag: winFlag
+        // }
+        // Game.GameManager.sendEvent(msg);
+
         Game.GameManager.gameState = GameState.Over;
         var msg = {
-            action: GLB.GAME_OVER_EVENT,
-            winFlag: winFlag
+            action: GLB.EXIT
         }
-        Game.GameManager.sendEventEx(msg);
+        Game.GameManager.sendEvent(msg);
+        // 不进入结算页面，进入大厅
+        clientEvent.dispatch(clientEvent.eventType.gameOver);
 
-        // var gamePanel = uiFunc.findUI("uiGamePanel");
-        // if (gamePanel) {
-        //     uiFunc.closeUI("uiGamePanel");
-        //     gamePanel.destroy();
-        // }
+        // 这里不先close就会destroy
+        var gamePanel = uiFunc.findUI("uiGamePanel");
+        if (gamePanel) {
+            uiFunc.closeUI("uiGamePanel");
+        }
+        mvs.engine.leaveRoom();
+        Game.GameManager.isLoadGame = false;
+        Game.GameManager.lobbyShow();
         uiFunc.closeUI(this.node.name);
         this.node.destroy();
 

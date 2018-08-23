@@ -64,7 +64,7 @@ cc.Class({
         console.log("游戏结束");
         if (Game.GameManager.gameState !== GameState.Over) {
             Game.GameManager.gameState = GameState.Over
-        }
+        } else return;
         this.isLoadGame = false;
         // mvs.engine.leaveRoom();
         setTimeout(function() {
@@ -107,15 +107,24 @@ cc.Class({
         console.log("netNotify");
         console.log("netNotify.owner:" + netNotify.owner);
         console.log("玩家：" + netNotify.userID + " state:" + netNotify.state);
+        if (Game.GameManager.gameState === GameState.Over) return;
         if (netNotify.userID !== GLB.userInfo.id) {
+            uiFunc.openUI("uiTip", function(obj) {
+                var uiTip = obj.getComponent("uiTip");
+                if (uiTip) {
+                    uiTip.setData("对方已退出");
+                }
+            });
+
+
             var winFlag;
             if (GLB.isRoomOwner) {
                 winFlag = GLB.PLAYER_FLAG.RED;
             } else {
                 winFlag = GLB.PLAYER_FLAG.BLUE;
             }
-            Game.GameManager.gameState = GameState.Over;
-            this.gameOver(winFlag);
+            // Game.GameManager.gameState = GameState.Over;
+            clientEvent.dispatch(clientEvent.eventType.gameOver, winFlag);
 
         }
     },
@@ -324,6 +333,29 @@ cc.Class({
             // this.gameOver(winFlag);
         }
 
+        if (info.cpProto.indexOf(GLB.EXIT) >= 0) {
+            // if(info.srcUserId == GLB.userInfo.id) {
+            //     console.log('我退出了游戏')
+            //     this.isLoadGame = false;
+            //     return;
+            // }
+            console.log('********对方退出了游戏********')
+            uiFunc.openUI("uiTip", function(obj) {
+                var uiTip = obj.getComponent("uiTip");
+                if (uiTip) {
+                    uiTip.setData("对方已退出");
+                }
+            });
+
+            var winFlag;
+            if (GLB.isRoomOwner) {
+                winFlag = GLB.PLAYER_FLAG.RED;
+            } else {
+                winFlag = GLB.PLAYER_FLAG.BLUE;
+            }
+            clientEvent.dispatch(clientEvent.eventType.gameOver, winFlag);
+        }
+
         if (info.cpProto.indexOf(GLB.READY) >= 0) {
             this.readyCnt++;
             if (GLB.isRoomOwner && this.readyCnt >= GLB.playerUserIds.length) {
@@ -388,6 +420,8 @@ cc.Class({
     },
 
     startGame: function() {
+        console.log('startGame')
+        console.log(this.isLoadGame);
         if(this.isLoadGame) return;
         this.isLoadGame = true;
         this.readyCnt = 0;

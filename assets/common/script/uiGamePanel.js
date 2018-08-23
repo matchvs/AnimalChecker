@@ -65,7 +65,6 @@ cc.Class({
     gameOver () {
         this.stopTimeWarnAnim();
         this.setTimeNumFont();
-        if(this.interval === null) return;
         clearInterval(this.interval);
     },
 
@@ -75,7 +74,7 @@ cc.Class({
 
     roundStart () {
         this.timeLabelInit();
-        this.interval = null;
+        clearInterval(this.interval);
         this.playerFlag = GLB.PLAYER_FLAG.RED;
         // this.getTurn(this.playerFlag);
         user.init();
@@ -150,14 +149,15 @@ cc.Class({
             this.time--;
             this.countDownEvent();
             if(this.time <= 0 && Game.GameManager.gameState === GameState.Play) {
-                console.log('超时；获胜方====' + this.playerFlag === GLB.PLAYER_FLAG.RED ? '蓝色':'红色');
+                console.log('超时；获胜方====' + (this.playerFlag === GLB.PLAYER_FLAG.RED ? '蓝色':'红色'));
                 var winFlag = this.playerFlag === GLB.PLAYER_FLAG.RED ? GLB.PLAYER_FLAG.BLUE : GLB.PLAYER_FLAG.RED
-                Game.GameManager.gameState = GameState.Over;
+                // Game.GameManager.gameState = GameState.Over;
                 var msg = {
                     action: GLB.GAME_OVER_EVENT,
                     winFlag: winFlag
                 }
-                Game.GameManager.sendEventEx(msg);
+                Game.GameManager.sendEvent(msg);
+                clientEvent.dispatch(clientEvent.eventType.gameOver, winFlag);
                 clearInterval(this.interval);
                 this.interval = null;
             }
@@ -226,6 +226,7 @@ cc.Class({
     },
 
     onDestroy () {
+        console.log('uiGamePanel onDestroy');
         clearInterval(this.interval);
         clientEvent.off(clientEvent.eventType.updateTime, this.updateTime.bind(this));
         clientEvent.off(clientEvent.eventType.countTime, this.countTime.bind(this));

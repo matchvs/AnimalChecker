@@ -55,6 +55,7 @@ var obj = {
     OPEN_FOR_OTHER: "openForOther",
     EAT_FOR_OTHER: "eatForOther",
     CLEAR_CHESS: "clearChess",
+    EXIT: "exit",
 
     // 连着6回合 12步都没有进行吃的操作
     needStepNoEat: 12
