@@ -657,7 +657,7 @@ cc.Class({
             var winFlag = null;
             var userIsWin = false;
             // user.gameOver = true;
-            Game.GameManager.gameState = GameState.Over;
+            // Game.GameManager.gameState = GameState.Over;
             if (!x && !y) {
                 console.log("和局");
                 // clientEvent.dispatchEvent("resultDown","2");
