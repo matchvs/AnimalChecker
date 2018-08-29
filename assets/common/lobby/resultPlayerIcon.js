@@ -35,7 +35,9 @@ cc.Class({
             if (recvMsg.headIcon && recvMsg.headIcon !== "-") {
                 cc.loader.load({url: recvMsg.headIcon, type: 'png'}, function(err, texture) {
                     var spriteFrame = new cc.SpriteFrame(texture, cc.Rect(0, 0, texture.width, texture.height));
-                    this.icon.spriteFrame = spriteFrame;
+                    if(this.icon) {
+                        this.icon.spriteFrame = spriteFrame;
+                    }
                 }.bind(this));
             }
         }
