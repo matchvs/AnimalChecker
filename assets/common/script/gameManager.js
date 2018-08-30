@@ -61,8 +61,8 @@ cc.Class({
     },
 
     gameOver: function(winFlag) {
-        console.log("游戏结束");
-        if (Game.GameManager.gameState !== GameState.Over) {
+        var gamePanel = uiFunc.findUI("uiGamePanel");
+        if (gamePanel && Game.GameManager.gameState !== GameState.Over) {
             Game.GameManager.gameState = GameState.Over
         } else return;
         this.isLoadGame = false;
