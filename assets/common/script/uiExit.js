@@ -43,6 +43,7 @@ cc.Class({
         var gamePanel = uiFunc.findUI("uiGamePanel");
         if (gamePanel) {
             uiFunc.closeUI("uiGamePanel");
+            gamePanel.destroy();
         }
         mvs.engine.leaveRoom();
         Game.GameManager.isLoadGame = false;

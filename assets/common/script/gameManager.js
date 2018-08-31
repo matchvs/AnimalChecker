@@ -368,6 +368,7 @@ cc.Class({
             // setTimeout(function() {
             //     Game.GameManager.gameState = GameState.Play;
             // }.bind(this), 2000);
+            console.log('------dispatch roundStart------');
             clientEvent.dispatch(clientEvent.eventType.roundStart);
         }
 
@@ -421,8 +422,7 @@ cc.Class({
     },
 
     startGame: function() {
-        console.log('startGame')
-        console.log(this.isLoadGame);
+        console.log('-----startGame-----')
         if(this.isLoadGame) return;
         this.isLoadGame = true;
         this.readyCnt = 0;
@@ -499,6 +499,7 @@ cc.Class({
             });
         }
     },
+
 
     onDestroy() {
         clientEvent.off(clientEvent.eventType.gameOver, this.gameOver, this);

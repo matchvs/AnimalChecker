@@ -35,7 +35,7 @@ window.clientEvent = {
         eatForOther: "eatForOther",
         getMap: "getMap",
         stopTimeWarnAnim: "stopTimeWarnAnim",
-        clearChess: "clearChess"
+        clearChess: "clearChess",
     },
     eventListener: null
 }

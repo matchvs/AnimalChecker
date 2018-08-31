@@ -37,12 +37,12 @@ cc.Class({
         this.readyAnim.on('finished', this.gameStart, this);
         this.selfIcon = this.node.getChildByName('headImg').getChildByName('leftImgMask').getChildByName('leftImg');
         this.rivalIcon = this.node.getChildByName('headImg').getChildByName('rightImgMask').getChildByName('rightImg');
-        clientEvent.on(clientEvent.eventType.updateTime, this.updateTime.bind(this));
-        clientEvent.on(clientEvent.eventType.countTime, this.countTime.bind(this));
-        clientEvent.on(clientEvent.eventType.changeFlag, this.changeFlag.bind(this));
-        clientEvent.on(clientEvent.eventType.roundStart, this.roundStart.bind(this));
-        clientEvent.on(clientEvent.eventType.gameOver, this.gameOver.bind(this));
-        clientEvent.on(clientEvent.eventType.stopTimeWarnAnim, this.stopTimeWarnAnim.bind(this));
+        clientEvent.on(clientEvent.eventType.updateTime, this.updateTime, this);
+        clientEvent.on(clientEvent.eventType.countTime, this.countTime, this);
+        clientEvent.on(clientEvent.eventType.changeFlag, this.changeFlag, this);
+        clientEvent.on(clientEvent.eventType.roundStart, this.roundStart, this);
+        clientEvent.on(clientEvent.eventType.gameOver, this.gameOver, this);
+        clientEvent.on(clientEvent.eventType.stopTimeWarnAnim, this.stopTimeWarnAnim, this);
         this.readyGoAudio = this.readyNode.getComponent(cc.AudioSource);
     },
 
@@ -73,6 +73,7 @@ cc.Class({
     },
 
     roundStart () {
+        console.log('------roundStart------')
         this.timeLabelInit();
         clearInterval(this.interval);
         this.playerFlag = GLB.PLAYER_FLAG.RED;
@@ -148,18 +149,21 @@ cc.Class({
         this.interval = setInterval(function() {
             this.time--;
             this.countDownEvent();
-            if(this.time <= 0 && Game.GameManager.gameState === GameState.Play) {
-                console.log('超时；获胜方====' + (this.playerFlag === GLB.PLAYER_FLAG.RED ? '蓝色':'红色'));
-                var winFlag = this.playerFlag === GLB.PLAYER_FLAG.RED ? GLB.PLAYER_FLAG.BLUE : GLB.PLAYER_FLAG.RED
-                // Game.GameManager.gameState = GameState.Over;
-                var msg = {
-                    action: GLB.GAME_OVER_EVENT,
-                    winFlag: winFlag
+            if (this.time <= 0) {
+                if (Game.GameManager.gameState === GameState.Play) {
+                    console.log('超时；获胜方====' + (this.playerFlag === GLB.PLAYER_FLAG.RED ? '蓝色':'红色'));
+                    var winFlag = this.playerFlag === GLB.PLAYER_FLAG.RED ? GLB.PLAYER_FLAG.BLUE : GLB.PLAYER_FLAG.RED
+                    // Game.GameManager.gameState = GameState.Over;
+                    var msg = {
+                        action: GLB.GAME_OVER_EVENT,
+                        winFlag: winFlag
+                    }
+                    Game.GameManager.sendEvent(msg);
+                    clientEvent.dispatch(clientEvent.eventType.gameOver, winFlag);
                 }
-                Game.GameManager.sendEvent(msg);
-                clientEvent.dispatch(clientEvent.eventType.gameOver, winFlag);
                 clearInterval(this.interval);
                 this.interval = null;
+
             }
         }.bind(this), 1000);
     },
@@ -211,11 +215,14 @@ cc.Class({
     },
 
     updateTime (param) {
-        if (Game.GameManager.gameState !== GameState.Play) return;
+        // if (Game.GameManager.gameState !== GameState.Play) return;
         var side = null;
         var time = param.time;
-        if (time <= 5) {
+        if (time <= 5 && time > 0) {
             this.playTimeWarnAnim();
+        }
+        if (time <= 0) {
+            this.stopTimeWarnAnim();
         }
         this.getTurn(param.flag);
         user.isMyTurn ? side = 'Left' : side = 'Right';
@@ -228,12 +235,12 @@ cc.Class({
     onDestroy () {
         console.log('uiGamePanel onDestroy');
         clearInterval(this.interval);
-        clientEvent.off(clientEvent.eventType.updateTime, this.updateTime.bind(this));
-        clientEvent.off(clientEvent.eventType.countTime, this.countTime.bind(this));
-        clientEvent.off(clientEvent.eventType.changeFlag, this.changeFlag.bind(this));
-        clientEvent.off(clientEvent.eventType.roundStart, this.roundStart.bind(this));
-        clientEvent.off(clientEvent.eventType.gameOver, this.gameOver.bind(this));
-        clientEvent.off(clientEvent.eventType.stopTimeWarnAnim, this.stopTimeWarnAnim.bind(this));
+        clientEvent.off(clientEvent.eventType.updateTime, this.updateTime, this);
+        clientEvent.off(clientEvent.eventType.countTime, this.countTime, this);
+        clientEvent.off(clientEvent.eventType.changeFlag, this.changeFlag, this);
+        clientEvent.off(clientEvent.eventType.roundStart, this.roundStart, this);
+        clientEvent.off(clientEvent.eventType.gameOver, this.gameOver, this);
+        clientEvent.off(clientEvent.eventType.stopTimeWarnAnim, this.stopTimeWarnAnim, this);
     }
     // update (dt) {},
 });
