@@ -208,5 +208,7 @@ cc.Class({
         clientEvent.off(clientEvent.eventType.leaveRoomNotify, this.leaveRoomNotify, this);
         clientEvent.off(clientEvent.eventType.kickPlayerResponse, this.kickPlayerResponse, this);
         clientEvent.off(clientEvent.eventType.kickPlayerNotify, this.kickPlayerNotify, this);
+        clientEvent.off(clientEvent.eventType.leaveRoomMedNotify, this.leaveRoomMedNotify, this);
+
     }
 });

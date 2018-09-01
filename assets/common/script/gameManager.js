@@ -107,8 +107,8 @@ cc.Class({
         console.log("netNotify");
         console.log("netNotify.owner:" + netNotify.owner);
         console.log("玩家：" + netNotify.userID + " state:" + netNotify.state);
-        if (Game.GameManager.gameState === GameState.Over) return;
-        if (netNotify.userID !== GLB.userInfo.id) {
+        // if (Game.GameManager.gameState === GameState.Over) return;
+        if (netNotify.userID !== GLB.userInfo.id && Game.GameManager.gameState === GameState.Play) {
             uiFunc.openUI("uiTip", function(obj) {
                 var uiTip = obj.getComponent("uiTip");
                 if (uiTip) {
@@ -127,6 +127,7 @@ cc.Class({
             clientEvent.dispatch(clientEvent.eventType.gameOver, winFlag);
 
         }
+        clientEvent.dispatch(clientEvent.eventType.leaveRoomMedNotify, netNotify);
     },
 
     kickPlayerNotify: function(kickPlayerNotify) {

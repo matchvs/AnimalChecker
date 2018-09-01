@@ -22,6 +22,7 @@ window.clientEvent = {
         getRoomListExResponse: "getRoomListExResponse",
         kickPlayerResponse: "kickPlayerResponse",
         kickPlayerNotify: "kickPlayerNotify",
+        leaveRoomMedNotify:"leaveRoomMedNotify",
 
         updateTime: "updateTime",
         eatForChess: "eatForChess",
