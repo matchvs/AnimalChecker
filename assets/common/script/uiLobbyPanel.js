@@ -22,7 +22,9 @@ cc.Class({
         if (Game.GameManager.avatarUrl) {
             cc.loader.load({url: Game.GameManager.avatarUrl, type: 'png'}, function(err, texture) {
                 var spriteFrame = new cc.SpriteFrame(texture, cc.Rect(0, 0, texture.width, texture.height));
-                this.nodeDict["userIcon"].getComponent(cc.Sprite).spriteFrame = spriteFrame;
+                if (this.node){
+                    this.nodeDict["userIcon"].getComponent(cc.Sprite).spriteFrame = spriteFrame;
+                }
             }.bind(this));
         }
         if (!Game.GameManager.network.isConnected()) {

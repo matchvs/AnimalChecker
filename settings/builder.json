@@ -29,7 +29,7 @@
   "title": "animal",
   "webOrientation": "portrait",
   "wechatgame": {
-    "REMOTE_SERVER_ROOT": "https://data.tianziyou.com/matchvsGamesRes/animalClient",
+    "REMOTE_SERVER_ROOT": "https://imgs.matchvs.com/static/tianziyou/animalChecker",
     "appid": "wx793199d0ca521154",
     "orientation": "portrait"
   },
