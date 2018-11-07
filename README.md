@@ -6,8 +6,9 @@ CC游戏案例之 斗兽棋
 联网游戏通常为多人游戏,需要`开启多个客户端`,详情见[多开说明](http://www.matchvs.com/service?page=MultipleIdentities)
 
 ## 在线体验
-体验地址 [体验链接](http://demo.matchvs.com/AnimalChecker)
+PC体验地址 (http://demo.matchvs.com/AnimalChecker)
 
+手机体验地址 (http://demo.matchvs.com/AnimalChecker-mobile)
 ## 源码体验
 ### 准备
 
