@@ -9,7 +9,15 @@ CC游戏案例之 斗兽棋
 PC体验地址 (http://demo.matchvs.com/AnimalChecker)
 
 手机体验地址 (http://demo.matchvs.com/AnimalChecker-mobile)
+
+
+
+## 专题介绍
+
+[链接:回合制游戏如何开发-斗兽棋](./回合制游戏如何开发-斗兽棋.md)
+
 ## 源码体验
+
 ### 准备
 
 1. 下载安装[cocos creator](http://www.cocos.com/download)v1.8.1或以上版本
