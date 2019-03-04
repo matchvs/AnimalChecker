@@ -39,7 +39,7 @@ cc.Class({
             var areaLine = [];
             for(var y = 0; y < this.columns; y++){
                // var pos = cc.p(-this.chessBoradWidth/2 + y*this.longX + this.longX/2, this.chessBoradHeight/2 - x*this.longY - this.longY/2);
-                var pos = cc.p(-this.chessBoradWidth/2 + y*this.longX + this.longX/2, this.chessBoradHeight/2 - x*this.longY - this.longY/2 + 5);
+                var pos = cc.v2(-this.chessBoradWidth/2 + y*this.longX + this.longX/2, this.chessBoradHeight/2 - x*this.longY - this.longY/2 + 5);
                 areaLine[y] = pos;
             }
             this.fPosList.push(areaLine);
@@ -114,28 +114,28 @@ cc.Class({
         console.log(this.chessMove);
         var moveTag;
         if (this.chessMove === true){
-            moveTag = {x:parseInt(this.oldChess.tag / 4),y:parseInt(this.oldChess.tag % 4)};
+            moveTag = {x:parseInt(this.oldChess.sign / 4),y:parseInt(this.oldChess.sign % 4)};
             if (this.data.left) {
                 if (moveTag.y - 1 === clickPos.y && moveTag.x === clickPos.x) {
-                    this.setEatfun(this.oldChess.tag,null,-1,clickPos);
+                    this.setEatfun(this.oldChess.sign,null,-1,clickPos);
                     console.log("成功移动");
                 }
             }
             if (this.data.right) {
                 if (moveTag.y + 1 === clickPos.y && moveTag.x === clickPos.x) {
-                    this.setEatfun(this.oldChess.tag,null,1,clickPos);
+                    this.setEatfun(this.oldChess.sign,null,1,clickPos);
                     console.log("成功移动");
                 }
             }
             if (this.data.up) {
                 if (moveTag.x  - 1 === clickPos.x && moveTag.y === clickPos.y) {
-                    this.setEatfun(this.oldChess.tag,null,-4,clickPos);
+                    this.setEatfun(this.oldChess.sign,null,-4,clickPos);
                     console.log("成功移动");
                 }
             }
             if (this.data.down) {
                 if (moveTag.x  + 1  === clickPos.x && moveTag.y === clickPos.y) {
-                    this.setEatfun(this.oldChess.tag,null,4,clickPos);
+                    this.setEatfun(this.oldChess.sign,null,4,clickPos);
                     console.log("成功移动");
                 }
             }
@@ -180,7 +180,7 @@ cc.Class({
             var chessNode = pool.getPrefab(this.chess.name);
             this.node.addChild(chessNode);
             chessNode.setPosition(showChessInfo[j].pos);
-            chessNode.tag = showChessInfo[j].tag;
+            chessNode.sign = showChessInfo[j].sign;
             var chessScript = chessNode.getComponent(this.chess.name);
             this.showChessArr.push(chessNode);
             chessScript.setChessType(showChessInfo[j].type, showChessInfo[j].index);
@@ -190,7 +190,7 @@ cc.Class({
             this.node.addChild(stepNode);
             stepScrip.setChessType(showChessInfo[j].type, showChessInfo[j].index);
             stepNode.setPosition(showChessInfo[j].pos);
-            stepNode.tag = showChessInfo[j].tag;
+            stepNode.sign = showChessInfo[j].sign;
             this.showStepArr.push(stepNode);
         }
     },
@@ -215,7 +215,7 @@ cc.Class({
                 var chessNode = pool.getPrefab(this.chess.name);
                 this.node.addChild(chessNode);
                 chessNode.setPosition(this.fPosList[j][k]);
-                chessNode.tag = j*this.columns + k;
+                chessNode.sign = j*this.columns + k;
                 var chessScript = chessNode.getComponent(this.chess.name);
                 this.showChessArr.push(chessNode);
 
@@ -224,10 +224,10 @@ cc.Class({
 
                 this.node.addChild(stepNode);
                 stepNode.setPosition(this.fPosList[j][k]);
-                stepNode.tag = j*this.columns + k;
+                stepNode.sign = j*this.columns + k;
                 this.showStepArr.push(stepNode);
 
-                var chessInfo = {pos:this.fPosList[j][k], tag:chessNode.tag};
+                var chessInfo = {pos:this.fPosList[j][k], sign:chessNode.sign};
                 var xx = cc.random0To1();
                 if(xx >= 0.5)
                 {
@@ -316,7 +316,7 @@ cc.Class({
             }
         }
         this.chessMove = move;//为true时是拿起棋子
-        if (this.oldTag !== stepNode.tag) {
+        if (this.oldTag !== stepNode.sign) {
             if (this.oldStepNode) {
                 this.oldStepNode.getComponent(this.nextStep.name).clearMove();
                // this.oldStepNode = null;
@@ -340,7 +340,7 @@ cc.Class({
         }
 
 
-        var tag = stepNode.tag;
+        var tag = stepNode.sign;
         this.oldTag = tag;
         var x = Math.floor(tag/this.columns);
         var y = tag%this.columns;
@@ -388,7 +388,7 @@ cc.Class({
                 data["largeThan" + parm] = true;//
                 return data;
             }
-            var tag = this.getTagByIndex(enemyChess).tag;
+            var tag = this.getTagByIndex(enemyChess).sign;
             var stepNode = this.getStepNodeByTag(tag);
             var stepNodeScrip = stepNode.getComponent(this.nextStep.name);
             if (!stepNodeScrip.getIsOpen()) {
@@ -416,40 +416,40 @@ cc.Class({
         if (!this.oldChess) {
             return;
         }
-        var oldTag = this.oldChess.tag;
+        var oldTag = this.oldChess.sign;
         if(this.data.left)
         {
-            if (typeof oldTag !== "undefined" && ((isEatChess.tag + 1) === oldTag)) {
-                this.setEatfun(oldTag,isEatChess.tag,-1);
+            if (typeof oldTag !== "undefined" && ((isEatChess.sign + 1) === oldTag)) {
+                this.setEatfun(oldTag,isEatChess.sign,-1);
             }
         }
         if(this.data.right)
         {
 
-            if (typeof oldTag !== "undefined" && (isEatChess.tag - 1 === oldTag)) {
-                this.setEatfun(oldTag,isEatChess.tag,1);
+            if (typeof oldTag !== "undefined" && (isEatChess.sign - 1 === oldTag)) {
+                this.setEatfun(oldTag,isEatChess.sign,1);
             }
         }
         if(this.data.up)
         {
-            if (typeof oldTag !== "undefined" && (isEatChess.tag + 4 === oldTag)) {
-                this.setEatfun(oldTag,isEatChess.tag,-4);
+            if (typeof oldTag !== "undefined" && (isEatChess.sign + 4 === oldTag)) {
+                this.setEatfun(oldTag,isEatChess.sign,-4);
             }
         }
         if(this.data.down)
         {
-            if (typeof oldTag !== "undefined" && (isEatChess.tag - 4 === oldTag)) {
-                this.setEatfun(oldTag,isEatChess.tag,4);
+            if (typeof oldTag !== "undefined" && (isEatChess.sign - 4 === oldTag)) {
+                this.setEatfun(oldTag,isEatChess.sign,4);
             }
         }
     },
 
     eatForOther (data) {
         if (data.eatTag !== null) {
-            this.eatOther(data.oldTag,data.eatTag,data.tag);
+            this.eatOther(data.oldTag,data.eatTag,data.sign);
             user.stepIfEatOrOpen(1);
         } else {
-            this.moveToKong(data.oldTag,data.tag,data.clickPos);
+            this.moveToKong(data.oldTag,data.sign,data.clickPos);
             user.stepIfEatOrOpen(3);
         }
     },
@@ -487,7 +487,7 @@ cc.Class({
         var msg = {
             action: GLB.EAT_FOR_OTHER,
             eatInfo: {
-                oldTag: oldTag,eatTag: eatTag,tag: tag,clickPos: clickPos
+                oldTag: oldTag,eatTag: eatTag,sign: tag,clickPos: clickPos
             }
         };
         Game.GameManager.sendEvent(msg);
@@ -501,13 +501,13 @@ cc.Class({
         this.chessBoardList[parseInt(oldChess/4)][parseInt(oldChess%4)] = 0;
         var oldChessNode = this.getChessNodeByTag(oldChess);
         var oldStepNode = this.getStepNodeByTag(oldChess);
-        oldChessNode.tag += addTag;
-        oldStepNode.tag += addTag;
+        oldChessNode.sign += addTag;
+        oldStepNode.sign += addTag;
         var oldChessScrip = oldChessNode.getComponent(this.chess.name);
         var oldStepNodeScrip = oldStepNode.getComponent(this.nextStep.name);
         var y = clickPos.y;
         var x = clickPos.x;
-        var pos = cc.p(-this.chessBoradWidth/2 + y*this.longX + this.longX/2, this.chessBoradHeight/2 - x*this.longY - this.longY/2);
+        var pos = cc.v2(-this.chessBoradWidth/2 + y*this.longX + this.longX/2, this.chessBoradHeight/2 - x*this.longY - this.longY/2);
         // oldChessScrip.getNode().setPosition(pos);
         oldChessScrip.getNode().runAction(cc.sequence(cc.moveTo(0.2,pos),cc.callFunc(function() {
             // TODO 播放音乐
@@ -559,9 +559,9 @@ cc.Class({
                 // TODO 播放音乐
                 user.setAudio("eat");
                 this.clearOldChessNode(function(){
-                    ownerNode.tag += tag;
+                    ownerNode.sign += tag;
                     var ownerStepNode = ownerStepChess.getNode();
-                    ownerStepNode.tag += tag;
+                    ownerStepNode.sign += tag;
                     ownerNode.runAction(cc.moveTo(0.2,pos));
                     // ownerChess.setPosition(pos);
                     ownerStepChess.setPosition(pos2);
@@ -576,7 +576,7 @@ cc.Class({
                 }.bind(this));
             }.bind(this))));
         } else if (parm === 0) {
-            ownerNode.setLocalZOrder(100);
+            ownerNode.zIndex = 100;
             ownerNode.runAction(cc.sequence(cc.moveTo(0.2,pos),cc.callFunc(function() {
                 // TODO 播放音乐
                 user.setAudio("allDie");
@@ -594,7 +594,7 @@ cc.Class({
                 }.bind(this),1);
             }.bind(this))));
         } else {
-            ownerNode.setLocalZOrder(100);
+            ownerNode.zIndex = 100;
             ownerNode.runAction(cc.sequence(cc.moveTo(0.2,pos),cc.callFunc(function(){
                 // TODO 播放音乐
                 user.setAudio("eat");
@@ -695,15 +695,15 @@ cc.Class({
     chessSetDestory:function(ownerChess,ownerStepChess,isEatChess,isEatStepChess) {
         if (ownerChess !== null && ownerStepChess !== null) {
             var ownerNode = ownerChess.getNode();
-            ownerNode.tag = 100;
+            ownerNode.sign = 100;
             var ownerStepNode = ownerStepChess.getNode();
-            ownerStepNode.tag = 100;
+            ownerStepNode.sign = 100;
         }
         if (isEatChess !== null && isEatStepChess !== null) {
             var isEatNode = isEatChess.getNode();
-            isEatNode.tag = 100;
+            isEatNode.sign = 100;
             var isEatStepNode = isEatStepChess.getNode();
-            isEatStepNode.tag = 100;
+            isEatStepNode.sign = 100;
         }
     },
 
@@ -744,7 +744,7 @@ cc.Class({
     getChessNodeByTag:function (tag) {
         for(var i = 0; i < this.showChessArr.length; i++)
         {
-            if(this.showChessArr[i].tag === tag)
+            if(this.showChessArr[i].sign === tag)
             {
                 return this.showChessArr[i];
             }
@@ -754,7 +754,7 @@ cc.Class({
     getStepNodeByTag:function (tag) {
         for(var i = 0; i < this.showStepArr.length; i++)
         {
-            if(this.showStepArr[i].tag === tag)
+            if(this.showStepArr[i].sign === tag)
             {
                 return this.showStepArr[i];
             }

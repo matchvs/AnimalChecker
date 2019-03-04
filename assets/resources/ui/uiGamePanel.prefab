@@ -3411,7 +3411,19 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": true
+    "_enabled": true,
+    "redFlag": {
+      "__uuid__": "f011e7ab-42c9-4633-8da4-e2fca4b5d2d5"
+    },
+    "blueFlag": {
+      "__uuid__": "354e1662-5969-4d52-bcda-4b00ee7a38f8"
+    },
+    "redArrow": {
+      "__uuid__": "44152a15-82ed-4d71-a1dc-180d1ed1b8d8"
+    },
+    "blueArrow": {
+      "__uuid__": "510d8170-67fe-47f2-87c5-36761552e4c1"
+    }
   },
   {
     "__type__": "cc.AudioSource",

@@ -60,7 +60,7 @@ cc.Class({
     },
 
     openChessPieceEvent (tag) {
-        if (this.node.tag !== tag) return;
+        if (this.node.sign !== tag) return;
         this.openChessPiece();
     },
 
@@ -131,7 +131,7 @@ cc.Class({
         this.rightNode.active = false;
         this.upNode.active = false;
         this.downNode.active = false;
-        this.node.setLocalZOrder(0);
+        this.node.zIndex = 0;
     },
 
     setMoveDirection:function (data, cb) {
@@ -140,7 +140,7 @@ cc.Class({
         // this.rightNode = this.node.getChildByName('right');
         // this.upNode = this.node.getChildByName('up');
         // this.downNode = this.node.getChildByName('down');
-        this.node.setLocalZOrder(100);
+        this.node.zIndex = 100;
         if(data.left)
         {
             this.leftNode.active = data.left;

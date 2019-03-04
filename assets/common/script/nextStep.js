@@ -69,11 +69,11 @@ cc.Class({
             var msg = {action: GLB.CHANGE_FLAG};
             Game.GameManager.sendEvent(msg);
             clientEvent.dispatch(clientEvent.eventType.changeFlag);
-            clientEvent.dispatch(clientEvent.eventType.openChessPiece, this.node.tag);
+            clientEvent.dispatch(clientEvent.eventType.openChessPiece, this.node.sign);
         }
         // user.isMyTurn = false;
         // TODO 发送翻棋的消息
-        var msg = {action: GLB.OPEN_FOR_OTHER, tag: this.node.tag};
+        var msg = {action: GLB.OPEN_FOR_OTHER, sign: this.node.sign};
         Game.GameManager.sendEvent(msg);
     },
 

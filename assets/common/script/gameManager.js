@@ -389,7 +389,7 @@ cc.Class({
         }
         if (info.cpProto.indexOf(GLB.OPEN_FOR_OTHER) >= 0) {
             if(info.srcUserId == GLB.userInfo.id) return;
-            var tag = JSON.parse(info.cpProto).tag;
+            var tag = JSON.parse(info.cpProto).sign;
             clientEvent.dispatch(clientEvent.eventType.openForOther, tag);
         }
         if (info.cpProto.indexOf(GLB.EAT_FOR_OTHER) >= 0) {

@@ -6,16 +6,16 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // redFlag: cc.SpriteFrame,
-        // blueFlag: cc.SpriteFrame,
-        // redArrow: cc.SpriteFrame,
-        // blueArrow: cc.SpriteFrame
+        redFlag: cc.SpriteFrame,
+        blueFlag: cc.SpriteFrame,
+        redArrow: cc.SpriteFrame,
+        blueArrow: cc.SpriteFrame
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        this.setPicture();
+        // this.setPicture();
         // this.leftBgSprite = this.node.getChildByName('bgImg').getChildByName('colorImg').getChildByName('left').getComponent(cc.Sprite);
         // this.blueBgSprite = this.node.getChildByName('bgImg').getChildByName('colorImg').getChildByName('right').getComponent(cc.Sprite);
         this.leftBgSprite = this.node.getChildByName('headImg').getChildByName('imgBgLeft').getComponent(cc.Sprite);
