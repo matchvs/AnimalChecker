@@ -77,7 +77,6 @@ cc.Class({
     },
 
     overClear () {
-        console.log('******清除棋子数据*****')
         this.mapParam01 = null;
         this.mapParam02  = null;
         this.oldChessNode = null;
@@ -109,9 +108,7 @@ cc.Class({
             return;
         }
         var clickPos = {x:3 - parseInt(clickPos.x),y:parseInt(clickPos.y)};
-        console.log(clickPos);
         // var moveTag = clickPos.x * 4 + clickPos.y;
-        console.log(this.chessMove);
         var moveTag;
         if (this.chessMove === true){
             moveTag = {x:parseInt(this.oldChess.sign / 4),y:parseInt(this.oldChess.sign % 4)};
@@ -319,7 +316,7 @@ cc.Class({
         if (this.oldTag !== stepNode.sign) {
             if (this.oldStepNode) {
                 this.oldStepNode.getComponent(this.nextStep.name).clearMove();
-               // this.oldStepNode = null;
+               this.oldStepNode = null;
             }
         }
         if (this.chessMove === false) {
@@ -327,7 +324,7 @@ cc.Class({
             if (this.oldChessNode) {
                 this.oldChessNode.clearDirection();
                 this.oldChessNode.animatPutDown();
-                this.oldStepNode = null;
+                this.oldChessNode = null;
             }
             return;
         }
@@ -376,7 +373,7 @@ cc.Class({
         this.currentChessNode = this.getChessNodeByTag(tag);
         this.oldStepNode = this.getStepNodeByTag(tag);
         this.oldChess = this.currentChessNode;
-        this.oldChessNode =  this.currentChessNode.getComponent(this.currentChessNode.name);
+        this.oldChessNode = this.currentChessNode.getComponent(this.currentChessNode.name);
         this.oldChessNode.setMoveDirection(data,cb);
     },
 
@@ -466,16 +463,20 @@ cc.Class({
 
     setEatfun:function(oldTag,eatTag,tag,clickPos){
         if (eatTag !== null) {
-            // user.isMyTurn = false;
+
             var msg = {action: GLB.CHANGE_FLAG};
             Game.GameManager.sendEventEx(msg);
+            // user.isMyTurn = false;
             this.eatOther(oldTag,eatTag,tag);//吃敌方
             user.stepIfEatOrOpen(1);
+
         } else {
             // user.isMyTurn = false;
+
             var msg = {action: GLB.CHANGE_FLAG};
             Game.GameManager.sendEventEx(msg);
             this.moveToKong(oldTag,tag,clickPos);//走空地
+
         }
 
         this.chessMove = false;
@@ -505,19 +506,20 @@ cc.Class({
         oldStepNode.sign += addTag;
         var oldChessScrip = oldChessNode.getComponent(this.chess.name);
         var oldStepNodeScrip = oldStepNode.getComponent(this.nextStep.name);
-        var y = clickPos.y;
-        var x = clickPos.x;
+        let y = clickPos.y;
+        let x = clickPos.x;
         var pos = cc.v2(-this.chessBoradWidth/2 + y*this.longX + this.longX/2, this.chessBoradHeight/2 - x*this.longY - this.longY/2);
         // oldChessScrip.getNode().setPosition(pos);
-        oldChessScrip.getNode().runAction(cc.sequence(cc.moveTo(0.2,pos),cc.callFunc(function() {
-            // TODO 播放音乐
+        oldChessScrip.getNode().stopAllActions();
+        var callF = cc.callFunc(function () {
             user.setAudio("pieceClick");
             this.clearOldChessNode(function(){
                 oldStepNodeScrip.getNode().setPosition(pos);
                 this.chessBoardList[clickPos.x][clickPos.y] = oldChessScrip.index + 1;
                 this.isGameOver();
             }.bind(this));
-        }.bind(this))));
+        }.bind(this));
+        oldChessScrip.getNode().runAction(cc.sequence(cc.moveTo(0.2,pos),callF));
         // oldChessScrip.getNode().runAction(cc.moveTo(0.2,pos));
     },
 
@@ -555,6 +557,7 @@ cc.Class({
         var pos2 = isEatStepChess.getPosition();
         var ownerNode = ownerChess.getNode();
         if (parm > 0) {
+            ownerNode.stopAllActions();
             ownerNode.runAction(cc.sequence(cc.moveTo(0.2,pos),cc.callFunc(function() {
                 // TODO 播放音乐
                 user.setAudio("eat");
@@ -562,6 +565,7 @@ cc.Class({
                     ownerNode.sign += tag;
                     var ownerStepNode = ownerStepChess.getNode();
                     ownerStepNode.sign += tag;
+                    ownerNode.stopAllActions();
                     ownerNode.runAction(cc.moveTo(0.2,pos));
                     // ownerChess.setPosition(pos);
                     ownerStepChess.setPosition(pos2);
@@ -577,6 +581,7 @@ cc.Class({
             }.bind(this))));
         } else if (parm === 0) {
             ownerNode.zIndex = 100;
+            ownerNode.stopAllActions();
             ownerNode.runAction(cc.sequence(cc.moveTo(0.2,pos),cc.callFunc(function() {
                 // TODO 播放音乐
                 user.setAudio("allDie");
@@ -595,6 +600,7 @@ cc.Class({
             }.bind(this))));
         } else {
             ownerNode.zIndex = 100;
+            ownerNode.stopAllActions();
             ownerNode.runAction(cc.sequence(cc.moveTo(0.2,pos),cc.callFunc(function(){
                 // TODO 播放音乐
                 user.setAudio("eat");
@@ -784,7 +790,6 @@ cc.Class({
     },
 
     onDestroy () {
-        console.log('******chessBoardPanelOndestroy******');
         clientEvent.off(clientEvent.eventType.mapInit, this.mapInitEvent, this);
         clientEvent.off(clientEvent.eventType.eatForChess, this.eatForChessEvent, this)
         clientEvent.off(clientEvent.eventType.eatForOther, this.eatForOther, this);

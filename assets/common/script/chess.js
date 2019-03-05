@@ -127,11 +127,12 @@ cc.Class({
         // this.rightNode = this.node.getChildByName('right');
         // this.upNode = this.node.getChildByName('up');
         // this.downNode = this.node.getChildByName('down');
+        this.node.zIndex = 0;
         this.leftNode.active = false;
         this.rightNode.active = false;
         this.upNode.active = false;
         this.downNode.active = false;
-        this.node.zIndex = 0;
+
     },
 
     setMoveDirection:function (data, cb) {
@@ -200,7 +201,7 @@ cc.Class({
 
     animatPutDown:function(cb,parm) {
         if (this.chessNode.scale === 1.2) {
-            this.putDown  = this.chessNode.getComponent(cc.Animation).play("putDown").on("finished",function() {
+            this.putDown  = this.chessNode.getComponent(cc.Animation).play("putDown").once("finished",function() {
                 if (parm) {
                     cb();
                     return;
@@ -209,7 +210,7 @@ cc.Class({
                     return;
                 }
                 this.yanwuNode.active = true;
-                this.yanwuNode.getComponent(cc.Animation).play("yanwu").on("finished",function() {
+                this.yanwuNode.getComponent(cc.Animation).play("yanwu").once("finished",function() {
                     this.yanwuNode.active = false;
                     if (cb) {
                         cb();
