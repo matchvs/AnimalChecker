@@ -1,0 +1,56 @@
+2019-03-07T02:47:24.834Z - normal: Load ~/.CocosCreator/settings.json
+2019-03-07T02:47:24.840Z - normal: checking language setting...
+2019-03-07T02:47:24.841Z - normal: Language: zh
+2019-03-07T02:47:25.878Z - success: protocol editor-framework registered
+2019-03-07T02:47:25.878Z - success: protocol app registered
+2019-03-07T02:47:25.878Z - success: protocol theme registered
+2019-03-07T02:47:25.878Z - success: protocol packages registered
+2019-03-07T02:47:25.879Z - success: protocol unpack registerred
+2019-03-07T02:47:25.879Z - success: protocol disable-commonjs registerred
+2019-03-07T02:47:26.055Z - normal: connected!
+2019-03-07T02:47:26.058Z - normal: Check project /Users/mac/AnimalChecker
+2019-03-07T02:47:26.060Z - normal: Initializing Cocos2d
+2019-03-07T02:47:26.341Z - normal: Initializing Asset Database
+2019-03-07T02:47:26.384Z - success: protocol uuid registerred
+2019-03-07T02:47:26.384Z - success: protocol db registerred
+2019-03-07T02:47:26.384Z - success: protocol thumbnail registerred
+2019-03-07T02:47:26.384Z - normal: Loading editor/builtin packages
+2019-03-07T02:47:26.415Z - success: anysdk loaded
+2019-03-07T02:47:26.544Z - success: assets loaded
+2019-03-07T02:47:26.547Z - success: builder loaded
+2019-03-07T02:47:26.549Z - success: cocos-analytics loaded
+2019-03-07T02:47:26.556Z - success: console loaded
+2019-03-07T02:47:26.596Z - success: fb-instant-games loaded
+2019-03-07T02:47:26.601Z - success: hierarchy loaded
+2019-03-07T02:47:26.609Z - success: inspector loaded
+2019-03-07T02:47:26.611Z - success: keystore loaded
+2019-03-07T02:47:26.615Z - success: node-library loaded
+2019-03-07T02:47:26.618Z - success: package-asset loaded
+2019-03-07T02:47:26.622Z - success: preferences loaded
+2019-03-07T02:47:26.627Z - success: project-exporter loaded
+2019-03-07T02:47:26.649Z - success: project-importer loaded
+2019-03-07T02:47:26.657Z - success: project-settings loaded
+2019-03-07T02:47:26.662Z - success: ui-kit loaded
+2019-03-07T02:47:26.668Z - success: ui-grid loaded
+2019-03-07T02:47:26.675Z - success: scene loaded
+2019-03-07T02:47:26.676Z - success: sprite-editor loaded
+2019-03-07T02:47:26.681Z - success: store loaded
+2019-03-07T02:47:26.690Z - success: timeline loaded
+2019-03-07T02:47:26.690Z - normal: Loading builtin packages
+2019-03-07T02:47:26.695Z - success: asset-db-debugger loaded
+2019-03-07T02:47:26.696Z - success: color-picker loaded
+2019-03-07T02:47:26.700Z - success: package-manager loaded
+2019-03-07T02:47:26.702Z - success: qqplay-adapter loaded
+2019-03-07T02:47:26.715Z - success: sdkbox loaded
+2019-03-07T02:47:26.723Z - success: tester loaded
+2019-03-07T02:47:26.727Z - success: ui-kit-preview-extra loaded
+2019-03-07T02:47:26.731Z - success: ui-kit-preview loaded
+2019-03-07T02:47:26.735Z - success: ui-tree loaded
+2019-03-07T02:47:26.739Z - success: weapp-adapter loaded
+2019-03-07T02:47:27.984Z - normal: Initializing project /Users/mac/AnimalChecker
+2019-03-07T02:47:27.986Z - normal: Loading packages
+2019-03-07T02:47:28.002Z - success: plugin-matchvs loaded
+2019-03-07T02:47:28.002Z - normal: Watching packages
+2019-03-07T02:47:28.138Z - normal: Run Application
+2019-03-07T02:47:29.546Z - success: preview server running at http://localhost:7456
+2019-03-07T02:47:38.717Z - normal: 1.9.3

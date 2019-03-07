@@ -45,7 +45,7 @@ cc.Class({
             uiFunc.closeUI("uiGamePanel");
             gamePanel.destroy();
         }
-        mvs.engine.leaveRoom();
+        mvs.engine.leaveRoom("");
         Game.GameManager.isLoadGame = false;
         Game.GameManager.lobbyShow();
         uiFunc.closeUI(this.node.name);

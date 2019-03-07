@@ -101,7 +101,7 @@ cc.Class({
     },
 
     leaveRoom: function() {
-        mvs.engine.leaveRoom();
+        mvs.engine.leaveRoom("");
     },
 
     leaveRoomNotify: function(data) {
