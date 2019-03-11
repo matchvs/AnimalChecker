@@ -225,7 +225,7 @@ cc.Class({
                 this.showStepArr.push(stepNode);
 
                 var chessInfo = {pos:this.fPosList[j][k], sign:chessNode.sign};
-                var xx = cc.random0To1();
+                var xx = Math.random();
                 if(xx >= 0.5)
                 {
                     if(blueChessPiecesArr.length == 0)
@@ -234,7 +234,7 @@ cc.Class({
                         {
                             break;
                         }
-                        var index = Math.floor(cc.random0To1()*redChessPiecesArr.length);
+                        var index = Math.floor(Math.random()*redChessPiecesArr.length);
                         chessScript.setChessType(GLB.PLAYER_FLAG.RED, redChessPiecesArr[index]);
                         stepNodeScrip.setChessType(GLB.PLAYER_FLAG.RED, redChessPiecesArr[index]);
                         chessInfo.type = GLB.PLAYER_FLAG.RED;
@@ -244,7 +244,7 @@ cc.Class({
                     }
                     else
                     {
-                        var index = Math.floor(cc.random0To1()*blueChessPiecesArr.length);
+                        var index = Math.floor(Math.random()*blueChessPiecesArr.length);
                         chessScript.setChessType(GLB.PLAYER_FLAG.BLUE, blueChessPiecesArr[index]);
                         stepNodeScrip.setChessType(GLB.PLAYER_FLAG.BLUE, blueChessPiecesArr[index]);
                         chessInfo.type = GLB.PLAYER_FLAG.BLUE;
@@ -262,7 +262,7 @@ cc.Class({
                         {
                             break;
                         }
-                        var index = Math.floor(cc.random0To1()*blueChessPiecesArr.length);
+                        var index = Math.floor(Math.random()*blueChessPiecesArr.length);
                         chessScript.setChessType(GLB.PLAYER_FLAG.BLUE, blueChessPiecesArr[index]);
                         stepNodeScrip.setChessType(GLB.PLAYER_FLAG.BLUE, blueChessPiecesArr[index]);
                         chessInfo.type = GLB.PLAYER_FLAG.BLUE;
@@ -271,7 +271,7 @@ cc.Class({
                         blueChessPiecesArr.splice(index, 1);
                     }
                     else{
-                        var index = Math.floor(cc.random0To1()*redChessPiecesArr.length);
+                        var index = Math.floor(Math.random()*redChessPiecesArr.length);
                         chessScript.setChessType(GLB.PLAYER_FLAG.RED, redChessPiecesArr[index]);
                         stepNodeScrip.setChessType(GLB.PLAYER_FLAG.RED, redChessPiecesArr[index]);
                         chessInfo.type = GLB.PLAYER_FLAG.RED;
