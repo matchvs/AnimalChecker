@@ -1,56 +1,124 @@
-2019-03-07T02:47:24.834Z - normal: Load ~/.CocosCreator/settings.json
-2019-03-07T02:47:24.840Z - normal: checking language setting...
-2019-03-07T02:47:24.841Z - normal: Language: zh
-2019-03-07T02:47:25.878Z - success: protocol editor-framework registered
-2019-03-07T02:47:25.878Z - success: protocol app registered
-2019-03-07T02:47:25.878Z - success: protocol theme registered
-2019-03-07T02:47:25.878Z - success: protocol packages registered
-2019-03-07T02:47:25.879Z - success: protocol unpack registerred
-2019-03-07T02:47:25.879Z - success: protocol disable-commonjs registerred
-2019-03-07T02:47:26.055Z - normal: connected!
-2019-03-07T02:47:26.058Z - normal: Check project /Users/mac/AnimalChecker
-2019-03-07T02:47:26.060Z - normal: Initializing Cocos2d
-2019-03-07T02:47:26.341Z - normal: Initializing Asset Database
-2019-03-07T02:47:26.384Z - success: protocol uuid registerred
-2019-03-07T02:47:26.384Z - success: protocol db registerred
-2019-03-07T02:47:26.384Z - success: protocol thumbnail registerred
-2019-03-07T02:47:26.384Z - normal: Loading editor/builtin packages
-2019-03-07T02:47:26.415Z - success: anysdk loaded
-2019-03-07T02:47:26.544Z - success: assets loaded
-2019-03-07T02:47:26.547Z - success: builder loaded
-2019-03-07T02:47:26.549Z - success: cocos-analytics loaded
-2019-03-07T02:47:26.556Z - success: console loaded
-2019-03-07T02:47:26.596Z - success: fb-instant-games loaded
-2019-03-07T02:47:26.601Z - success: hierarchy loaded
-2019-03-07T02:47:26.609Z - success: inspector loaded
-2019-03-07T02:47:26.611Z - success: keystore loaded
-2019-03-07T02:47:26.615Z - success: node-library loaded
-2019-03-07T02:47:26.618Z - success: package-asset loaded
-2019-03-07T02:47:26.622Z - success: preferences loaded
-2019-03-07T02:47:26.627Z - success: project-exporter loaded
-2019-03-07T02:47:26.649Z - success: project-importer loaded
-2019-03-07T02:47:26.657Z - success: project-settings loaded
-2019-03-07T02:47:26.662Z - success: ui-kit loaded
-2019-03-07T02:47:26.668Z - success: ui-grid loaded
-2019-03-07T02:47:26.675Z - success: scene loaded
-2019-03-07T02:47:26.676Z - success: sprite-editor loaded
-2019-03-07T02:47:26.681Z - success: store loaded
-2019-03-07T02:47:26.690Z - success: timeline loaded
-2019-03-07T02:47:26.690Z - normal: Loading builtin packages
-2019-03-07T02:47:26.695Z - success: asset-db-debugger loaded
-2019-03-07T02:47:26.696Z - success: color-picker loaded
-2019-03-07T02:47:26.700Z - success: package-manager loaded
-2019-03-07T02:47:26.702Z - success: qqplay-adapter loaded
-2019-03-07T02:47:26.715Z - success: sdkbox loaded
-2019-03-07T02:47:26.723Z - success: tester loaded
-2019-03-07T02:47:26.727Z - success: ui-kit-preview-extra loaded
-2019-03-07T02:47:26.731Z - success: ui-kit-preview loaded
-2019-03-07T02:47:26.735Z - success: ui-tree loaded
-2019-03-07T02:47:26.739Z - success: weapp-adapter loaded
-2019-03-07T02:47:27.984Z - normal: Initializing project /Users/mac/AnimalChecker
-2019-03-07T02:47:27.986Z - normal: Loading packages
-2019-03-07T02:47:28.002Z - success: plugin-matchvs loaded
-2019-03-07T02:47:28.002Z - normal: Watching packages
-2019-03-07T02:47:28.138Z - normal: Run Application
-2019-03-07T02:47:29.546Z - success: preview server running at http://localhost:7456
-2019-03-07T02:47:38.717Z - normal: 1.9.3
+2019-03-22T03:57:38.951Z - normal: Load ~/.CocosCreator/settings.json
+2019-03-22T03:57:39.005Z - normal: Initializing Asset Database
+2019-03-22T03:57:39.009Z - normal: checking language setting...
+2019-03-22T03:57:39.009Z - normal: Language: zh
+2019-03-22T03:57:39.727Z - success: preview server running at http://localhost:7457
+2019-03-22T03:57:39.758Z - success: protocol editor-framework registered
+2019-03-22T03:57:39.758Z - success: protocol app registered
+2019-03-22T03:57:39.758Z - success: protocol theme registered
+2019-03-22T03:57:39.758Z - success: protocol packages registered
+2019-03-22T03:57:39.758Z - success: protocol uuid registerred
+2019-03-22T03:57:39.758Z - success: protocol db registerred
+2019-03-22T03:57:39.759Z - success: protocol thumbnail registerred
+2019-03-22T03:57:39.759Z - success: protocol unpack registerred
+2019-03-22T03:57:39.759Z - success: protocol disable-commonjs registerred
+2019-03-22T03:57:39.969Z - normal: connected!
+2019-03-22T03:57:39.970Z - normal: Check project /Users/mac/AnimalChecker
+2019-03-22T03:57:39.971Z - normal: Initializing project /Users/mac/AnimalChecker
+2019-03-22T03:57:40.569Z - normal: Initializing Cocos2d
+2019-03-22T03:57:41.209Z - normal: Initializing engine extends
+2019-03-22T03:57:41.265Z - success: asset-db-debugger loaded
+2019-03-22T03:57:41.266Z - success: color-picker loaded
+2019-03-22T03:57:41.351Z - success: fb-audience-network loaded
+2019-03-22T03:57:41.396Z - success: fb-live-stream loaded
+2019-03-22T03:57:41.398Z - success: google-play-instant loaded
+2019-03-22T03:57:41.402Z - success: huawei-runtime loaded
+2019-03-22T03:57:41.403Z - success: jsb-adapter loaded
+2019-03-22T03:57:41.407Z - success: oppo-runtime loaded
+2019-03-22T03:57:41.415Z - success: package-manager loaded
+2019-03-22T03:57:41.546Z - success: qqplay-adapter loaded
+2019-03-22T03:57:41.549Z - success: runtime-dev-tools loaded
+2019-03-22T03:57:41.558Z - success: sdkbox loaded
+2019-03-22T03:57:41.566Z - success: tester loaded
+2019-03-22T03:57:41.577Z - success: ui-grid loaded
+2019-03-22T03:57:41.583Z - success: ui-kit-preview-extra loaded
+2019-03-22T03:57:41.590Z - success: ui-kit-preview loaded
+2019-03-22T03:57:41.597Z - success: ui-kit loaded
+2019-03-22T03:57:41.605Z - success: ui-tree loaded
+2019-03-22T03:57:41.607Z - success: vivo-runtime loaded
+2019-03-22T03:57:41.608Z - success: weapp-adapter loaded
+2019-03-22T03:57:41.665Z - success: assets loaded
+2019-03-22T03:57:41.672Z - success: builder loaded
+2019-03-22T03:57:41.923Z - success: cocos-services loaded
+2019-03-22T03:57:41.931Z - success: console loaded
+2019-03-22T03:57:41.964Z - success: fb-instant-games loaded
+2019-03-22T03:57:41.966Z - success: google-instant-games loaded
+2019-03-22T03:57:41.976Z - success: hierarchy loaded
+2019-03-22T03:57:41.984Z - success: inspector loaded
+2019-03-22T03:57:41.985Z - success: keystore loaded
+2019-03-22T03:57:41.994Z - success: node-library loaded
+2019-03-22T03:57:41.996Z - success: package-asset loaded
+2019-03-22T03:57:41.998Z - success: preferences loaded
+2019-03-22T03:57:42.004Z - success: project-exporter loaded
+2019-03-22T03:57:42.012Z - success: project-importer loaded
+2019-03-22T03:57:42.019Z - success: project-settings loaded
+2019-03-22T03:57:42.029Z - success: scene loaded
+2019-03-22T03:57:42.031Z - success: simulator-debugger loaded
+2019-03-22T03:57:42.034Z - success: sprite-editor loaded
+2019-03-22T03:57:42.043Z - success: store loaded
+2019-03-22T03:57:42.052Z - success: timeline loaded
+2019-03-22T03:57:42.063Z - success: plugin-matchvs loaded
+2019-03-22T03:57:43.863Z - info: Cocos Services load base data!
+2019-03-22T03:57:48.059Z - normal: Loading packages
+2019-03-22T03:57:48.063Z - normal: Watching packages
+2019-03-22T03:57:48.144Z - normal: Run Application
+2019-03-22T03:57:53.215Z - warn: Please change the definition of property 'loseClip' in class 'uiVsResult'. Starting from v1.10,
+the use of declaring a property in CCClass as a URL has been deprecated.
+For example, if property is Texture2D, the previous definition is:
+    loseClip: cc.Texture2D,
+    // or:
+    loseClip: {
+      url: cc.Texture2D,
+      default: ""
+    },
+Now it should be changed to:
+    loseClip: {
+      type: cc.Texture2D, // use 'type:' to define Texture2D object directly
+      default: null,      // object's default value is null
+    },
+(This helps us to successfully refactor all RawAssets at v2.0, sorry for the inconvenience. 😰 )
+2019-03-22T03:57:53.215Z - warn: Please change the definition of property 'victoryClip' in class 'uiVsResult'. Starting from v1.10,
+the use of declaring a property in CCClass as a URL has been deprecated.
+For example, if property is Texture2D, the previous definition is:
+    victoryClip: cc.Texture2D,
+    // or:
+    victoryClip: {
+      url: cc.Texture2D,
+      default: ""
+    },
+Now it should be changed to:
+    victoryClip: {
+      type: cc.Texture2D, // use 'type:' to define Texture2D object directly
+      default: null,      // object's default value is null
+    },
+(This helps us to successfully refactor all RawAssets at v2.0, sorry for the inconvenience. 😰 )
+2019-03-22T04:02:23.094Z - warn: The Asset used by component "cc.Sprite" in prefab "redReduction2.prefab" is missing. Detailed information:
+Node path: "redReduction2"
+Asset url: "db://assets/resources/ui/redReduction2.prefab"
+Missing uuid: "f9d53c60-0ef1-478a-9e37-7ddf8538b7c8"
+
+2019-03-22T04:04:00.280Z - warn: The Asset used by component "cc.Sprite" in prefab "blueAdd1.prefab" is missing. Detailed information:
+Node path: "blueAdd1"
+Asset url: "db://assets/resources/ui/blueAdd1.prefab"
+Missing uuid: "ac74907c-cc46-49b1-a0f2-18fd548230ed"
+
+2019-03-22T04:04:01.839Z - warn: The Asset used by component "cc.Sprite" in prefab "blueReduction2.prefab" is missing. Detailed information:
+Node path: "blueReduction2"
+Asset url: "db://assets/resources/ui/blueReduction2.prefab"
+Missing uuid: "023fa72f-b3ba-4288-9519-6acdb3075533"
+
+2019-03-22T04:04:02.772Z - warn: The Asset used by component "cc.Sprite" in prefab "key_countdown.prefab" is missing. Detailed information:
+Node path: "key_countdown/scoreBoard"
+Asset url: "db://assets/resources/ui/key_countdown.prefab"
+Missing uuid: "387200f2-5af8-4dd9-a61f-df8d5c710d18"
+
+2019-03-22T04:04:05.300Z - warn: The Asset used by component "cc.Sprite" in prefab "redAdd1.prefab" is missing. Detailed information:
+Node path: "redAdd1"
+Asset url: "db://assets/resources/ui/redAdd1.prefab"
+Missing uuid: "568d23cb-8e2b-4d18-93cb-6c135a6d2170"
+
+2019-03-22T04:04:06.205Z - warn: The Asset used by component "cc.Sprite" in prefab "redReduction2.prefab" is missing. Detailed information:
+Node path: "redReduction2"
+Asset url: "db://assets/resources/ui/redReduction2.prefab"
+Missing uuid: "f9d53c60-0ef1-478a-9e37-7ddf8538b7c8"
+

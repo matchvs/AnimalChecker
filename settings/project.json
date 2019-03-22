@@ -40,9 +40,15 @@
   "start-scene": "79146b76-f001-46c3-9f85-5e013f21b436",
   "use-customize-simulator": false,
   "use-project-simulator-setting": false,
-  "cocos-analytics": {
+  "last-module-event-record-time": 0,
+  "facebook": {
     "enable": false,
-    "appID": "13798",
-    "appSecret": "959b3ac0037d0f3c2fdce94f8421a9b2"
+    "appID": "",
+    "live": {
+      "enable": false
+    },
+    "audience": {
+      "enable": false
+    }
   }
 }
